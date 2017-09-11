@@ -1,0 +1,25 @@
+###2017-07-09 
+###correlation_calculation.R results
+###human quint_df_derived 
+
+###between C<->G 
+
+Spearman's rank correlation rho
+
+data:  x$qc1.qc2 and x$OR
+S = 693540, p-value < 2.2e-16
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+0.7519667 
+
+###between C<->G and OR>=1
+
+	Spearman's rank correlation rho
+
+data:  xx$qc1.qc2 and xx$OR
+S = 131700, p-value < 2.2e-16
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+0.6858508 
