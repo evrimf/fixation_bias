@@ -11,9 +11,9 @@ Deviance Residuals:
 -0.7986  -0.6961  -0.6764  -0.6533   1.8253  
 
 Coefficients:
-                                        				Estimate  Std. Error   z value  Pr(>|z|)    
-(Intercept)                                                 -1.533719   0.022906  -66.96    <2e-16 ***
-log(distance_to_trimers_all_2$distance)  0.070473    0.007273    9.69      <2e-16 ***
+                                        				Estimate   Std. Error   z value  Pr(>|z|)    
+(Intercept)                                             -1.533719   0.022906   -66.96     <2e-16 ***
+log(distance_to_trimers_all_2$distance)                 0.070473    0.007273    9.69      <2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
