@@ -104,7 +104,7 @@ AIC: 1408500
 Number of Fisher Scoring iterations: 4
 
 ###################################################
-##recombination_rate*genic*hscore
+##recombination rate+genic|nongenic+hscore+recombrate*hscore
 Call:
 glm(formula = decode_table[cg_indices, "fixed|poly"] ~ decode_table[cg_indices, 
     "recombination rate"] + factor(decode_table[cg_indices, "genic|nongenic"]) + 
