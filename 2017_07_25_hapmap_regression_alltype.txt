@@ -1,0 +1,136 @@
+#### HAPMAP recombination rates
+#### All mutation types
+
+##recombination rate
+Call:
+glm(formula = hapmap_table[, "fixed|poly"] ~ hapmap_table[, "recombination rate"], 
+    family = "binomial")
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.8415  -0.8413  -0.8405   1.5557   1.7037  
+
+Coefficients:
+                                       Estimate Std. Error  z value Pr(>|z|)    
+(Intercept)                          -0.8560223  0.0006082 -1407.58   <2e-16 ***
+hapmap_table[, "recombination rate"] -0.0035855  0.0001122   -31.95   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 17220454  on 14155144  degrees of freedom
+Residual deviance: 17219409  on 14155143  degrees of freedom
+AIC: 17219413
+
+Number of Fisher Scoring iterations: 4
+
+##############################################
+##genic|nongenic
+Call:
+glm(formula = hapmap_table[, "fixed|poly"] ~ factor(hapmap_table[, 
+    "genic|nongenic"]), family = "binomial")
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-0.843  -0.843  -0.843   1.554   1.623  
+
+Coefficients:
+                                            Estimate Std. Error  z value Pr(>|z|)    
+(Intercept)                               -0.8518863  0.0006009 -1417.65   <2e-16 ***
+factor(hapmap_table[, "genic|nongenic"])1 -0.1527681  0.0024007   -63.63   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 17220454  on 14155144  degrees of freedom
+Residual deviance: 17216322  on 14155143  degrees of freedom
+AIC: 17216326
+
+Number of Fisher Scoring iterations: 4
+
+##############################################
+##hscore
+Call:
+glm(formula = hapmap_table[, "fixed|poly"] ~ hapmap_table[, "hscore"], 
+    family = "binomial")
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.9074  -0.8381  -0.8381   1.5313   1.6463  
+
+Coefficients:
+                           Estimate Std. Error z value Pr(>|z|)    
+(Intercept)              -0.8656952  0.0005835   -1484   <2e-16 ***
+hapmap_table[, "hscore"] -0.0637076  0.0005741    -111   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 17220446  on 14155141  degrees of freedom
+Residual deviance: 17208110  on 14155140  degrees of freedom
+  (3 observations deleted due to missingness)
+AIC: 17208114
+
+Number of Fisher Scoring iterations: 4
+
+##############################################
+##recombination rate*hscore
+Call:
+glm(formula = hapmap_table[, "fixed|poly"] ~ hapmap_table[, "recombination rate"] * 
+    hapmap_table[, "hscore"], family = "binomial")
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.9111  -0.8401  -0.8298   1.5284   1.7111  
+
+Coefficients:
+                                                                Estimate Std. Error   z value Pr(>|z|)    
+(Intercept)                                                   -0.8599211  0.0006100 -1409.637  < 2e-16 ***
+hapmap_table[, "recombination rate"]                          -0.0035928  0.0001127   -31.869  < 2e-16 ***
+hapmap_table[, "hscore"]                                      -0.0650639  0.0006002  -108.396  < 2e-16 ***
+hapmap_table[, "recombination rate"]:hapmap_table[, "hscore"]  0.0007768  0.0001106     7.025 2.14e-12 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 17220446  on 14155141  degrees of freedom
+Residual deviance: 17206968  on 14155138  degrees of freedom
+  (3 observations deleted due to missingness)
+AIC: 17206976
+
+Number of Fisher Scoring iterations: 4
+
+##############################################
+##recombination rate+genic+hscore+recombination rate*hscore
+Call:
+glm(formula = hapmap_table[, "fixed|poly"] ~ hapmap_table[, "recombination rate"] + 
+    factor(hapmap_table[, "genic|nongenic"]) + hapmap_table[, 
+    "hscore"] + hapmap_table[, "recombination rate"] * hapmap_table[, 
+    "hscore"], family = "binomial")
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.9150  -0.8436  -0.8207   1.5239   1.7754  
+
+Coefficients:
+                                                                Estimate Std. Error   z value Pr(>|z|)    
+(Intercept)                                                   -0.8498442  0.0006287 -1351.692  < 2e-16 ***
+hapmap_table[, "recombination rate"]                          -0.0036552  0.0001127   -32.419  < 2e-16 ***
+factor(hapmap_table[, "genic|nongenic"])1                     -0.1543756  0.0024019   -64.273  < 2e-16 ***
+hapmap_table[, "hscore"]                                      -0.0651902  0.0006003  -108.598  < 2e-16 ***
+hapmap_table[, "recombination rate"]:hapmap_table[, "hscore"]  0.0007758  0.0001106     7.016 2.28e-12 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 17220446  on 14155141  degrees of freedom
+Residual deviance: 17202753  on 14155137  degrees of freedom
+  (3 observations deleted due to missingness)
+AIC: 17202763
+
+Number of Fisher Scoring iterations: 4
