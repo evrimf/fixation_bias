@@ -1,0 +1,138 @@
+#### HAPMAP
+#### Only A/T -> G/C (gBGC control)
+
+##recombination rate
+Call:
+glm(formula = hapmap_table[gbgc_indices_hapmap, "fixed|poly"] ~ 
+    hapmap_table[gbgc_indices_hapmap, "recombination rate"], 
+    family = "binomial")
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.8527  -0.8525  -0.8518   1.5416   1.6682  
+
+Coefficients:
+                                                          Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                                             -0.8246741  0.0009302 -886.53   <2e-16 ***
+hapmap_table[gbgc_indices_hapmap, "recombination rate"] -0.0030652  0.0001671  -18.34   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 7290976  on 5937266  degrees of freedom
+Residual deviance: 7290633  on 5937265  degrees of freedom
+AIC: 7290637
+
+Number of Fisher Scoring iterations: 4
+
+#############################################
+##genic|nongenic
+Call:
+glm(formula = hapmap_table[gbgc_indices_hapmap, "fixed|poly"] ~ 
+    factor(hapmap_table[gbgc_indices_hapmap, "genic|nongenic"]), 
+    family = "binomial")
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.8531  -0.8531  -0.8531   1.5410   1.5924  
+
+Coefficients:
+                                                               Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                                                  -0.8233518  0.0009172 -897.70   <2e-16 ***
+factor(hapmap_table[gbgc_indices_hapmap, "genic|nongenic"])1 -0.1139581  0.0039793  -28.64   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 7290976  on 5937266  degrees of freedom
+Residual deviance: 7290144  on 5937265  degrees of freedom
+AIC: 7290148
+
+Number of Fisher Scoring iterations: 4
+
+#############################################
+##hscore
+Call:
+glm(formula = hapmap_table[gbgc_indices_hapmap, "fixed|poly"] ~ 
+    hapmap_table[gbgc_indices_hapmap, "hscore"], family = "binomial")
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.9981  -0.8429  -0.8429   1.4916   1.7406  
+
+Coefficients:
+                                              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                                 -0.8520039  0.0009099  -936.4   <2e-16 ***
+hapmap_table[gbgc_indices_hapmap, "hscore"] -0.1381776  0.0008800  -157.0   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 7290976  on 5937266  degrees of freedom
+Residual deviance: 7266136  on 5937265  degrees of freedom
+AIC: 7266140
+
+Number of Fisher Scoring iterations: 4
+
+#############################################
+##recombination_rate*hscore
+Call:
+glm(formula = hapmap_table[gbgc_indices_hapmap, "fixed|poly"] ~ 
+    hapmap_table[gbgc_indices_hapmap, "recombination rate"] * 
+        hapmap_table[gbgc_indices_hapmap, "hscore"], family = "binomial")
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.0013  -0.8444  -0.8415   1.4893   1.7405  
+
+Coefficients:
+                                                                                                      Estimate Std. Error  z value Pr(>|z|)    
+(Intercept)                                                                                         -0.8479145  0.0009491 -893.422  < 2e-16 ***
+hapmap_table[gbgc_indices_hapmap, "recombination rate"]                                             -0.0025975  0.0001688  -15.389  < 2e-16 ***
+hapmap_table[gbgc_indices_hapmap, "hscore"]                                                         -0.1394788  0.0009184 -151.873  < 2e-16 ***
+hapmap_table[gbgc_indices_hapmap, "recombination rate"]:hapmap_table[gbgc_indices_hapmap, "hscore"]  0.0009180  0.0001631    5.628 1.82e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 7290976  on 5937266  degrees of freedom
+Residual deviance: 7265830  on 5937263  degrees of freedom
+AIC: 7265838
+
+Number of Fisher Scoring iterations: 4
+
+#############################################
+##recombination_rate+genic+hscore+recombination_rate*hscore
+Call:
+glm(formula = hapmap_table[gbgc_indices_hapmap, "fixed|poly"] ~ 
+    hapmap_table[gbgc_indices_hapmap, "recombination rate"] + 
+        factor(hapmap_table[gbgc_indices_hapmap, "genic|nongenic"]) + 
+        hapmap_table[gbgc_indices_hapmap, "hscore"] + hapmap_table[gbgc_indices_hapmap, 
+        "recombination rate"] * hapmap_table[gbgc_indices_hapmap, 
+        "hscore"], family = "binomial")
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.0027  -0.8463  -0.8383   1.4872   1.7805  
+
+Coefficients:
+                                                                                                      Estimate Std. Error  z value Pr(>|z|)    
+(Intercept)                                                                                         -0.8425059  0.0009740 -864.960  < 2e-16 ***
+hapmap_table[gbgc_indices_hapmap, "recombination rate"]                                             -0.0026341  0.0001688  -15.604  < 2e-16 ***
+factor(hapmap_table[gbgc_indices_hapmap, "genic|nongenic"])1                                        -0.0966380  0.0039893  -24.224  < 2e-16 ***
+hapmap_table[gbgc_indices_hapmap, "hscore"]                                                         -0.1388565  0.0009188 -151.124  < 2e-16 ***
+hapmap_table[gbgc_indices_hapmap, "recombination rate"]:hapmap_table[gbgc_indices_hapmap, "hscore"]  0.0009141  0.0001631    5.604 2.09e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 7290976  on 5937266  degrees of freedom
+Residual deviance: 7265236  on 5937262  degrees of freedom
+AIC: 7265246
+
+Number of Fisher Scoring iterations: 4
