@@ -135,3 +135,36 @@ Residual deviance: 16321279  on 12968156  degrees of freedom
 AIC: 16321289
 
 Number of Fisher Scoring iterations: 4
+
+#############################################
+##changed order of factors
+##genic|nongenic+recombination_rate+recombination_rate*hscore+hscore
+
+Call:
+glm(formula = decode_table[, "fixed|poly"] ~ factor(decode_table[, 
+    "genic|nongenic"]) + decode_table[, "recombination rate"] + 
+    decode_table[, "recombination rate"] * decode_table[, "hscore"] + 
+    decode_table[, "hscore"], family = "binomial")
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.9820  -0.8949  -0.8669   1.4720   1.7180  
+
+Coefficients:
+                                                                Estimate Std. Error  z value Pr(>|z|)    
+(Intercept)                                                   -0.6872733  0.0010476 -656.052   <2e-16 ***
+factor(decode_table[, "genic|nongenic"])1                     -0.1594747  0.0024343  -65.511   <2e-16 ***
+decode_table[, "recombination rate"]                          -0.0294273  0.0006223  -47.291   <2e-16 ***
+decode_table[, "hscore"]                                      -0.0695386  0.0010174  -68.352   <2e-16 ***
+decode_table[, "recombination rate"]:decode_table[, "hscore"]  0.0003263  0.0006115    0.534    0.594    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 16341845  on 12968160  degrees of freedom
+Residual deviance: 16321279  on 12968156  degrees of freedom
+  (3 observations deleted due to missingness)
+AIC: 16321289
+
+Number of Fisher Scoring iterations: 4
