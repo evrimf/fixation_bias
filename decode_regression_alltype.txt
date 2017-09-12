@@ -1,0 +1,136 @@
+####DECODE recombination rates
+####All mutation types
+
+##recombination rate
+
+Call:
+glm(formula = decode_table[, "fixed|poly"] ~ decode_table[, "recombination rate"], 
+    family = "binomial")
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.9001  -0.8905  -0.8808   1.4906   1.5717  
+
+Coefficients:
+                                       Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                          -0.6941876  0.0010340 -671.39   <2e-16 ***
+decode_table[, "recombination rate"] -0.0290512  0.0006196  -46.89   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 16341852  on 12968163  degrees of freedom
+Residual deviance: 16339644  on 12968162  degrees of freedom
+AIC: 16339648
+
+Number of Fisher Scoring iterations: 4
+########################################
+##genic|nongenic
+Call:
+glm(formula = decode_table[, "fixed|poly"] ~ factor(decode_table[, 
+    "genic|nongenic"]), family = "binomial")
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.8893  -0.8893  -0.8893   1.4960   1.5679  
+
+Coefficients:
+                                            Estimate Std. Error  z value Pr(>|z|)    
+(Intercept)                               -0.7236030  0.0006131 -1180.25   <2e-16 ***
+factor(decode_table[, "genic|nongenic"])1 -0.1594907  0.0024328   -65.56   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 16341852  on 12968163  degrees of freedom
+Residual deviance: 16337474  on 12968162  degrees of freedom
+AIC: 16337478
+
+Number of Fisher Scoring iterations: 4
+
+##########################################
+##hscore
+Call:
+glm(formula = decode_table[, "fixed|poly"] ~ decode_table[, "hscore"], 
+    family = "binomial")
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.9614  -0.8840  -0.8591   1.4716   1.5954  
+
+Coefficients:
+                           Estimate Std. Error z value Pr(>|z|)    
+(Intercept)              -0.7380438  0.0005950 -1240.5   <2e-16 ***
+decode_table[, "hscore"] -0.0686633  0.0005837  -117.6   <2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 16341845  on 12968160  degrees of freedom
+Residual deviance: 16327977  on 12968159  degrees of freedom
+  (3 observations deleted due to missingness)
+AIC: 16327981
+
+Number of Fisher Scoring iterations: 4
+
+###########################################
+##recombination rate*hscore
+Call:
+glm(formula = decode_table[, "fixed|poly"] ~ decode_table[, "recombination rate"] * 
+    decode_table[, "hscore"], family = "binomial")
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.9781  -0.8924  -0.8671   1.4742   1.6661  
+
+Coefficients:
+                                                                Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                                                   -0.6971863  0.0010370 -672.34   <2e-16 ***
+decode_table[, "recombination rate"]                          -0.0297983  0.0006221  -47.90   <2e-16 ***
+decode_table[, "hscore"]                                      -0.0694439  0.0010172  -68.27   <2e-16 ***
+decode_table[, "recombination rate"]:decode_table[, "hscore"]  0.0003546  0.0006114    0.58    0.562    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 16341845  on 12968160  degrees of freedom
+Residual deviance: 16325651  on 12968157  degrees of freedom
+  (3 observations deleted due to missingness)
+AIC: 16325659
+
+Number of Fisher Scoring iterations: 4
+
+#############################################
+##recombination rate*genic|nongenic*hscore
+Call:
+glm(formula = decode_table[, "fixed|poly"] ~ decode_table[, "recombination rate"] + 
+    factor(decode_table[, "genic|nongenic"]) + decode_table[, 
+    "hscore"] + decode_table[, "recombination rate"] * decode_table[, 
+    "hscore"], family = "binomial")
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.9820  -0.8949  -0.8669   1.4720   1.7180  
+
+Coefficients:
+                                                                Estimate Std. Error  z value Pr(>|z|)    
+(Intercept)                                                   -0.6872733  0.0010476 -656.052   <2e-16 ***
+decode_table[, "recombination rate"]                          -0.0294273  0.0006223  -47.291   <2e-16 ***
+factor(decode_table[, "genic|nongenic"])1                     -0.1594747  0.0024343  -65.511   <2e-16 ***
+decode_table[, "hscore"]                                      -0.0695386  0.0010174  -68.352   <2e-16 ***
+decode_table[, "recombination rate"]:decode_table[, "hscore"]  0.0003263  0.0006115    0.534    0.594    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 16341845  on 12968160  degrees of freedom
+Residual deviance: 16321279  on 12968156  degrees of freedom
+  (3 observations deleted due to missingness)
+AIC: 16321289
+
+Number of Fisher Scoring iterations: 4
