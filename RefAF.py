@@ -1,4 +1,6 @@
+#!/usr/bin/python
 ###function to find reference allele frequencies after HW filtering
+
 def RefAF(infile,outfile):
     
     inf=open(infile, "r")
